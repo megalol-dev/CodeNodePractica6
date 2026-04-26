@@ -1,0 +1,68 @@
+---
+import "../styles/global.css";
+
+let comics = [];
+let error = false;
+
+try {
+  const respuesta = await fetch("http://localhost/wordpresss/wp-json/wp/v2/manga");
+
+  if (!respuesta.ok) {
+    throw new Error("Error al conectar con WordPress");
+  }
+
+  comics = await respuesta.json();
+} catch (e) {
+  error = true;
+  comics = [];
+}
+---
+
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Librería Comics</title>
+  </head>
+
+  <body>
+    <header class="header">
+      <h1>Librería Comics</h1>
+      <p>Catálogo conectado a la REST API de WordPress</p>
+    </header>
+
+    <main class="main">
+      <section class="intro">
+        <h2>Catálogo de comics</h2>
+        <p>Estos datos vienen directamente desde WordPress.</p>
+      </section>
+
+      {error && (
+        <section class="estado-vacio">
+          <h3>WordPress no está disponible</h3>
+          <p>No se pudieron cargar los comics, pero la página sigue funcionando.</p>
+        </section>
+      )}
+
+      {!error && comics.length === 0 && (
+        <section class="estado-vacio">
+          <h3>No hay comics disponibles</h3>
+          <p>Añade contenido desde WordPress para verlo aquí.</p>
+        </section>
+      )}
+
+      <section class="grid-comics">
+        {comics.map((comic) => (
+          <article class="card-comic">
+            <h3>{comic.title.rendered}</h3>
+            <p>{comic.descripcion_corta || "Sin descripción disponible"}</p>
+          </article>
+        ))}
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Proyecto Astro + WordPress REST API</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,119 @@
+:root {
+    --azul: #0d47a1;
+    --naranja: #ff9800;
+    --blanco: #ffffff;
+    --gris-claro: #c8c9cb;
+    --texto: #222;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: var(--gris-claro);
+    color: var(--texto);
+
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: var(--azul);
+    color: var(--blanco);
+    text-align: center;
+    padding: 3rem 1rem;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+}
+
+.header p {
+    color: var(--naranja);
+    font-weight: bold;
+}
+
+.main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    flex: 1;
+}
+
+.intro {
+    background: var(--blanco);
+    border-left: 6px solid var(--naranja);
+    padding: 1.5rem;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+}
+
+.grid-comics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    align-items: stretch;
+}
+
+.card-comic {
+    background: var(--blanco);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-top: 5px solid var(--azul);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    min-height: 220px;
+}
+
+.card-comic h3 {
+    color: var(--azul);
+    margin-top: 0;
+}
+
+.card-comic p {
+    line-height: 1.5;
+}
+
+.footer {
+    background: var(--azul);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem;
+    margin-top: auto;
+}
+
+/*
+Para pintar los datos de la API desde WP
+*/
+.estado-vacio {
+    background: var(--blanco);
+    border: 2px dashed var(--naranja);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.estado-vacio h3 {
+    color: var(--azul);
+}
+
+/*
+Responsive
+*/
+@media (max-width: 900px) {
+    .grid-comics {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .grid-comics {
+        grid-template-columns: 1fr;
+    }
+}
