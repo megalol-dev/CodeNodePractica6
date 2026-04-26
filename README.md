@@ -1,46 +1,42 @@
-# Astro Starter Kit: Basics
+# CodeNodePractica6 - Astro + WordPress REST API
 
-```sh
-npm create astro@latest -- --template basics
+## Descripción
+
+Práctica en la que se conecta una web desarrollada con Astro a la REST API de WordPress.
+
+El objetivo es que la sección de proyectos/comics no use datos hardcodeados, sino datos reales guardados en WordPress y obtenidos mediante `fetch`.
+
+## Tecnologías utilizadas
+
+- Astro
+- HTML
+- CSS
+- JavaScript
+- WordPress
+- REST API
+- ACF
+
+## Funcionalidades
+
+- Web frontend creada con Astro
+- Conexión a WordPress mediante `fetch`
+- Lectura de datos reales desde la API REST
+- Muestra título y descripción de cada comic/manga
+- Manejo básico de errores si WordPress está apagado
+- Diseño responsive en tarjetas tipo grid
+
+## API utilizada
+
+```bash
+http://localhost/wordpresss/wp-json/wp/v2/manga
+
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+En la carpeta !PROFESOR se incluyen capturas del proyecto funcionando:
 
-## 🚀 Project Structure
+página de Astro en local
+JSON de la API de WordPress
+prueba de conexión entre frontend y backend
+Nota
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src
-│   ├── assets
-│   │   └── astro.svg
-│   ├── components
-│   │   └── Welcome.astro
-│   ├── layouts
-│   │   └── Layout.astro
-│   └── pages
-│       └── index.astro
-└── package.json
-```
-
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Para ver el proyecto funcionando correctamente es necesario tener WordPress iniciado en local con XAMPP y el CPT manga disponible en la REST API.
